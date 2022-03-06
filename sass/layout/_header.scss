@@ -1,0 +1,149 @@
+@use "../base/" as *;
+@use "../abstracts/" as *;
+
+*
+{
+    font-family: $font-secondary;
+    text-decoration: none;
+    outline: none; border: none;
+}
+
+html
+{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+.header
+{
+    width: 100%;
+    height: 100vh;
+    background: url(/images/mobile/image-hero.jpg)no-repeat;
+    background-size: cover;
+    padding: 3rem 7%;
+
+    @include responsive(portatil)
+    {
+        background: url(/images/desktop/image-hero.jpg)center no-repeat;
+        background-size: cover;
+        padding: 5rem 9%;
+    }
+
+    &__nav
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+    }
+
+    &__logo
+    {
+        z-index: 1;
+        cursor: text;
+    }
+
+    &__bars
+    {
+        filter: brightness(0) invert(1);
+        font-size: 2rem;
+        grid-column: 3;
+        z-index: 1;
+        cursor: pointer;
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__navDesk
+    {
+        display: none;
+
+        @include responsive(portatil)
+        {
+            display: block;
+            list-style: none;
+            grid-column: 3;
+        }
+    }
+
+    &__item
+    {
+        display: inline-block;
+    }
+
+    &__link
+    {
+        font-size: $font-primary;
+        font-weight: bold;
+        color: $white;
+        font-size: 1.7rem;
+        margin: 0 1.5rem;
+
+        &:hover
+        {
+            @include hover-links(1px solid $white, medium, .7rem);
+        }
+    }
+
+    &__mobile-menu
+    {
+        width: 100%;
+        height: 100%;
+        background: $black;
+        @include position(absolute, $top: 0, $right: 100%);
+        padding: 0 7%;
+        transition: all .2s ease-in-out;
+
+
+        &.active
+        {
+            right: 0;
+        }
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__item-mobile
+    {
+        display: block;
+        transform: translateY(20rem);
+        margin: 2rem 0;
+    }
+
+    &__link-mobile
+    {
+        color: rgba($color: $white, $alpha: .8);
+        font-size: 2.5rem;
+        text-transform: uppercase;
+
+        &:hover
+        {
+            color: $white;
+        }
+    }
+
+    &__title
+    {
+        text-align: start;
+        color: $white;
+        text-transform: uppercase;
+        font-weight: $weight-josefin;
+        font-size: 4rem;
+        margin-top: 4.2em;
+        border: 2px solid $white;
+        padding: .5em;
+        line-height: 1;
+
+        @include responsive(portatil)
+        {
+            width: 450px;
+            font-size: 5rem;
+            transform: translate(0%, -30%);
+        }
+    }
+}

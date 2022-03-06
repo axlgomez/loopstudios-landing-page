@@ -1,0 +1,122 @@
+@use "../base/" as *;
+@use "../abstracts/" as *;
+
+
+.footer
+{
+    background: $black;
+    text-align: center;
+    padding: 5rem 7%;
+    color: $white;
+
+    @include responsive(portatil)
+    {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        padding: 3rem 7%;
+    }
+
+    &__log-nav
+    {
+        
+        @include responsive(portatil)
+        {
+            text-align: start;
+            padding: 1rem 2rem;
+        }
+    }
+
+    &__social-text
+    {
+
+        @include responsive(portatil)
+        {
+            text-align: end;
+            transform: translateY(-3rem);
+        }
+    }
+
+    &__logo
+    {
+        margin: auto;
+        width: 150px;
+        cursor: text;
+
+        @include responsive(portatil)
+        {
+            margin: 0;
+        }
+    }
+
+    &__nav
+    {
+        display: grid;
+        margin-top: 4rem;
+        gap: 2rem;
+
+
+        @include responsive(portatil)
+        {
+            display: inline-block;
+            transform: translateX(-1.5rem);
+            margin: 2rem 0;
+        }
+    }
+
+    &__item
+    {
+        color: rgba($color: $white, $alpha: .9);
+        font-family: $font-primary;
+        font-size: 1.8rem;
+
+        &:hover
+        {
+            @include hover-links(1px solid $white, medium, .7rem);
+        }
+
+        @include responsive(portatil)
+        {
+            font-size: 1.5rem;
+            margin: 0 1.5rem;
+        }
+    }
+
+    &__social
+    {
+        list-style: none;
+        margin-top: 3rem;
+        transform: translateX(-1.5rem);
+    }
+
+    &__social-item
+    {
+        display: inline-block;
+    }
+
+    &__social-link
+    {
+        font-size: 3rem;
+        filter: brightness(0) invert(1);
+        margin: .7rem;
+
+        &:hover
+        {
+            @include hover-links(1px solid $white, medium, null);
+        }
+    }
+
+    &__text
+    {
+        font-size: 1.7rem;
+        margin-top: .7rem;
+        color: $dark-gray;
+        font-family: $font-primary;
+
+        @include responsive(portatil)
+        {
+            font-size: 1.5rem;
+            margin-right: 2rem;
+        }
+    }
+}

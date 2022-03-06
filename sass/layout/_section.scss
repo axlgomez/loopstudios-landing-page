@@ -1,0 +1,100 @@
+@use "../base/" as *;
+@use "../abstracts/" as *;
+
+main
+{
+    padding: 8rem 7%;
+
+    @include responsive(portatil)
+    {
+        padding: 8rem 9%;
+    }
+}
+
+.vr
+{
+    text-align: center;
+
+    @include responsive(portatil)
+    {
+        margin-bottom: 12rem;
+        @include position(relative);
+    }
+
+    &__pic-mobile
+    {
+        margin: auto;
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__pic-desktop
+    {
+        display: none;
+
+        @include responsive(portatil)
+        {
+            display: block;
+            width: 55rem;
+        }
+    }
+
+    &__content
+    {
+        @include responsive(portatil)
+        {
+            background: $white;
+            width: 50%;
+            text-align: start;
+            @include position(absolute, $top: 9rem);
+            transform: translateX(43rem);
+            padding: 3rem;
+        }
+
+        @include responsive(desktop)
+        {
+            top: 12rem;
+        }
+    }
+
+    &__title
+    {
+        margin-top: 4rem;
+        font-size: 3rem;
+        text-transform: uppercase;
+        line-height: 1;
+
+        @include responsive(portatil)
+        {
+            margin-left: 4rem;
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            width: 400px;
+        }
+    }
+
+    &__text
+    {
+        font-size: 1.5rem;
+        color: $very-dark-gray;
+        padding: 2rem 9%;
+
+        @include responsive(tablet)
+        {
+            font-size: 1.7rem;
+        }
+
+        @include responsive(portatil)
+        {
+            width: 500px;
+        }
+
+        @include responsive(desktop)
+        {
+            width: 570px;
+        }
+    }
+}

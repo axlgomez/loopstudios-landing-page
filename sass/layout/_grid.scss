@@ -1,0 +1,121 @@
+@use "../base/" as *;
+@use "../abstracts/" as *;
+
+.creations
+{
+    text-align: center;
+
+    @include responsive(portatil)
+    {
+        @include position(relative);
+    }
+    
+
+    &__title
+    {
+        margin: 3rem 0;
+        font-size: 3rem;
+        text-transform: uppercase;
+
+        @include responsive(portatil)
+        {
+            text-align: start;
+            color: rgba($color: $black, $alpha: .8);
+            letter-spacing: 2px;
+        }
+    }
+
+    &__container
+    {
+        display: grid;
+        gap: 3rem;
+
+        @include responsive(tablet)
+        {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include responsive(portatil)
+        {
+            grid-template-columns: repeat(4, 1fr);
+            margin-top: 5rem
+        }
+    }
+
+    &__container-image
+    {
+        @include position(relative);
+        margin: auto;
+        cursor: pointer;
+
+        &:hover
+        {
+            opacity: .8;
+        }
+    }
+
+    &__pic-mobile
+    {
+        filter: brightness(70%);
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__pic-desktop
+    {
+        display: none;
+
+        @include responsive(portatil)
+        {
+            display: block;
+            filter: brightness(90%);
+        }
+    }
+
+    &__title-pic
+    {
+        text-align: start;
+        color: $white;
+        font-size: 2.5rem;
+        line-height: 1;
+        text-transform: uppercase;
+        @include position(absolute, $bottom: 2rem, $left: 2rem);
+    }
+
+    &__button
+    {
+        color: $black;
+        border: 1px solid $black;
+        background: $white;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        font-family: $font-primary;
+        font-weight: bold;
+        letter-spacing: .5rem;
+        margin-top: 3rem;
+        padding: .8rem 3rem;
+        cursor: pointer;
+
+        &:hover
+        {
+            background: $black;
+            color: $white;
+            font-weight: $weight-alata;
+        }
+
+        @include responsive(tablet)
+        {
+            margin-top: 5rem;
+        }
+
+        @include responsive(portatil)
+        {
+            @include position(absolute, $top: -5rem, $right: 0);
+            padding: .8rem 2.5rem;
+            font-size: 1.2rem;
+        }
+    }
+}

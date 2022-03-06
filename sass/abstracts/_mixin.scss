@@ -1,0 +1,37 @@
+@mixin responsive($breakpoint) {
+    @if $breakpoint == tablet {
+        @media screen and (min-width: 768px) { @content }
+    }
+    @if $breakpoint == portatil {
+        @media screen and (min-width: 1024px) { @content }
+    }
+    @if $breakpoint == desktop {
+        @media screen and (min-width: 1200px) { @content }
+    }
+}
+
+
+
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+
+@mixin hover-links ($border-bottom, $border-bottom-width, $padding-bottom){
+
+    @if $border-bottom != null {
+        border-bottom: $border-bottom;
+    }
+
+    @if $border-bottom-width != null {
+        border-bottom-width: $border-bottom-width;   
+    }
+
+    @if $padding-bottom != null {
+        padding-bottom: $padding-bottom;
+    }
+}
